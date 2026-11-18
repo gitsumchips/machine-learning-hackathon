@@ -145,12 +145,25 @@ else:
     t0 = time.time()
     
     try:
-        response = requests.post(f"{backend_url}/match-trip/{selected_trip}", timeout=60)
+        req_url = f"{backend_url}/match-trip/{selected_trip}"
+        response = requests.post(req_url, timeout=60)
+        
+        # Fallback to alternate route aliases if 404
+        if response.status_code == 404:
+            for alt_endpoint in [f"{backend_url}/api/match-trip/{selected_trip}", f"{backend_url}/match/{selected_trip}"]:
+                alt_resp = requests.post(alt_endpoint, timeout=60)
+                if alt_resp.status_code == 200:
+                    response = alt_resp
+                    req_url = alt_endpoint
+                    break
+
         progress_bar.progress(60, text="Decoding HMM Viterbi sequence...")
         
         if response.status_code != 200:
             progress_bar.empty()
-            st.error(f"Inference failed with status {response.status_code}: {response.text}")
+            st.error(f"Inference failed with status {response.status_code} at `{req_url}`: {response.text}")
+            if response.status_code == 404:
+                st.warning("⚠️ **Backend 404 Not Found Error:** Laptop 1 is running an older version of `backend/main.py` that does not have the `/match-trip` route registered. Please restart Uvicorn on Laptop 1 with: `python -m uvicorn backend.main:app --host 0.0.0.0 --port 8000`")
         else:
             progress_bar.progress(90, text="Rendering interactive map layers...")
             data = response.json()

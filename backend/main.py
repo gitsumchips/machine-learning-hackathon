@@ -54,15 +54,21 @@ app.add_middleware(
 )
 
 # Global artifacts
+REPO_ROOT = Path(__file__).resolve().parent.parent
+DATA_DIR = REPO_ROOT / "data" / "Student folder"
+if not DATA_DIR.exists():
+    DATA_DIR = Path("data/Student folder")
+
 MODEL = None
-DATA_DIR = Path("data/Student folder")
 
 @app.on_event("startup")
 def load_artifacts():
     global MODEL
-    model_path = Path("models/pathsnap_hist_gradient_boosting_tuned.joblib")
+    model_path = REPO_ROOT / "models" / "pathsnap_hist_gradient_boosting_tuned.joblib"
     if not model_path.exists():
-        model_path = Path("PathSnap_GitHub_Artifacts/artifacts/hist_gradient_boosting/pathsnap_hist_gradient_boosting.joblib")
+        model_path = Path("models/pathsnap_hist_gradient_boosting_tuned.joblib")
+    if not model_path.exists():
+        model_path = REPO_ROOT / "PathSnap_GitHub_Artifacts" / "artifacts" / "hist_gradient_boosting" / "pathsnap_hist_gradient_boosting.joblib"
     logger.info(f"Loading trained classifier from {model_path}...")
     MODEL = joblib.load(model_path)
     logger.info("PathSnap model loaded successfully into memory. Ready for inference requests.")
@@ -77,15 +83,21 @@ def root():
     }
 
 @app.get("/health")
+@app.get("/health/")
+@app.get("/api/health")
 def health():
     return {"status": "healthy", "timestamp": time.time()}
 
 @app.get("/trips")
+@app.get("/trips/")
+@app.get("/api/trips")
+@app.get("/api/trips/")
 def list_evaluation_trips():
     """List available evaluation trips."""
     test_dir = DATA_DIR / "student_test"
     if not test_dir.exists():
-        raise HTTPException(status_code=404, detail="Student test directory not found")
+        logger.error(f"Student test directory not found at {test_dir.resolve()}")
+        raise HTTPException(status_code=404, detail=f"Student test directory not found at {test_dir}")
     trips = sorted([p.name for p in test_dir.iterdir() if p.is_dir()])
     logger.info(f"Listed {len(trips)} evaluation trips.")
     return {"trips": trips, "count": len(trips)}
@@ -192,6 +204,14 @@ def generate_candidates_for_inference(raw_trip) -> pd.DataFrame:
     return pd.DataFrame(rows)
 
 @app.post("/match-trip/{trip_id}")
+@app.post("/match-trip/{trip_id}/")
+@app.get("/match-trip/{trip_id}")
+@app.post("/api/match-trip/{trip_id}")
+@app.post("/api/match-trip/{trip_id}/")
+@app.post("/match/{trip_id}")
+@app.post("/match/{trip_id}/")
+@app.post("/api/match/{trip_id}")
+@app.post("/api/match/{trip_id}/")
 def match_trip(trip_id: str):
     """
     Process evaluation trip through the complete prediction pipeline:
