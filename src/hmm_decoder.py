@@ -78,6 +78,9 @@ def decode_viterbi_route(
     """
     # 1. Compute emission probabilities from model
     X = candidate_df[FEATURE_COLUMNS].to_numpy(dtype=np.float32)
+    expected_n = getattr(model, 'n_features_in_', X.shape[1])
+    if X.shape[1] > expected_n:
+        X = X[:, :expected_n]
     probs = model.predict_proba(X)[:, 1]
     candidate_df = candidate_df.copy()
     candidate_df['prob'] = probs

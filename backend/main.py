@@ -220,33 +220,38 @@ def match_trip(trip_id: str):
     t_start = time.time()
     logger.info(f">>> INFERENCE REQUEST RECEIVED for Trip ID: {trip_id}")
 
-    trip_dir = DATA_DIR / "student_test" / trip_id
-    if not trip_dir.exists():
-        logger.error(f"Trip {trip_id} not found in {trip_dir}")
-        raise HTTPException(status_code=404, detail=f"Trip {trip_id} not found")
+    global MODEL
+    if MODEL is None:
+        load_artifacts()
 
-    # 1. Load trip data (with server-side route labels strictly for evaluation)
-    raw_trip = load_trip(trip_dir, include_route=True)
-    ref_route = raw_trip.route.tolist() if raw_trip.route is not None else []
-    logger.info(f"Loaded Trip {trip_id}: {len(raw_trip.track)} GPS points, {len(raw_trip.arcs)} arcs, {len(ref_route)} reference arcs.")
+    try:
+        trip_dir = DATA_DIR / "student_test" / trip_id
+        if not trip_dir.exists():
+            logger.error(f"Trip {trip_id} not found in {trip_dir}")
+            raise HTTPException(status_code=404, detail=f"Trip {trip_id} not found")
 
-    # 2. Candidate generation (blind to reference route labels)
-    t_cands = time.time()
-    cands_df = generate_candidates_for_inference(raw_trip)
-    logger.info(f"Generated {len(cands_df)} candidates in {time.time()-t_cands:.3f}s.")
+        # 1. Load trip data (with server-side route labels strictly for evaluation)
+        raw_trip = load_trip(trip_dir, include_route=True)
+        ref_route = raw_trip.route.tolist() if raw_trip.route is not None else []
+        logger.info(f"Loaded Trip {trip_id}: {len(raw_trip.track)} GPS points, {len(raw_trip.arcs)} arcs, {len(ref_route)} reference arcs.")
 
-    # 3. Model Scoring & HMM / Viterbi Route Reconstruction
-    t_viterbi = time.time()
-    pointwise_selected, connected_route = decode_viterbi_route(
-        candidate_df=cands_df,
-        nodes_df=raw_trip.nodes,
-        arcs_df=raw_trip.arcs,
-        model=MODEL,
-        switch_penalty=40.0,
-        gap_penalty=80.0,
-        gap_scale_m=50.0
-    )
-    logger.info(f"HMM Viterbi decoding finished in {time.time()-t_viterbi:.3f}s. Reconstructed route length: {len(connected_route)} arcs.")
+        # 2. Candidate generation (blind to reference route labels)
+        t_cands = time.time()
+        cands_df = generate_candidates_for_inference(raw_trip)
+        logger.info(f"Generated {len(cands_df)} candidates in {time.time()-t_cands:.3f}s.")
+
+        # 3. Model Scoring & HMM / Viterbi Route Reconstruction
+        t_viterbi = time.time()
+        pointwise_selected, connected_route = decode_viterbi_route(
+            candidate_df=cands_df,
+            nodes_df=raw_trip.nodes,
+            arcs_df=raw_trip.arcs,
+            model=MODEL,
+            switch_penalty=40.0,
+            gap_penalty=80.0,
+            gap_scale_m=50.0
+        )
+        logger.info(f"HMM Viterbi decoding finished in {time.time()-t_viterbi:.3f}s. Reconstructed route length: {len(connected_route)} arcs.")
 
     # 4. Server-Side Accuracy Evaluation against internal reference route
     eval_metrics = compute_route_metrics(connected_route, ref_route, raw_trip.arcs)
@@ -313,3 +318,8 @@ def match_trip(trip_id: str):
             "raw_gps": gps_sub
         }
     }
+    except HTTPException:
+        raise
+    except Exception as e:
+        logger.error(f"Inference error on trip {trip_id}: {str(e)}", exc_info=True)
+        raise HTTPException(status_code=500, detail=f"Inference error on trip {trip_id}: {str(e)}")

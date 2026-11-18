@@ -3,6 +3,7 @@ __pycache__/# Generated ML outputs
 results/logistic_regression_oof_predictions.csv
 results/train_candidates_generated.parquet
 models/*.joblib
+!models/pathsnap_hist_gradient_boosting_tuned.joblib
 results/knn/*.joblib
 
 # Temporary files
