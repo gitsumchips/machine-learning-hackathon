@@ -1,2 +1,10 @@
 .venv
+__pycache__/# Generated ML outputs
+results/logistic_regression_oof_predictions.csv
+results/train_candidates_generated.parquet
+models/*.joblib
+results/knn/*.joblib
+
+# Temporary files
+.ipynb_checkpoints/
 __pycache__/

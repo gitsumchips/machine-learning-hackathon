@@ -1,0 +1,844 @@
+{
+  "training_candidate_rows": 1359629,
+  "training_trip_count": 80,
+  "training_positive_candidates": 185232,
+  "training_negative_candidates": 1174397,
+  "validation_trip_ids": [
+    "00000001",
+    "00000005",
+    "00000013",
+    "00000016",
+    "00000024",
+    "00000028",
+    "00000035",
+    "00000037",
+    "00000038",
+    "00000041",
+    "00000043",
+    "00000055",
+    "00000061",
+    "00000084",
+    "00000085",
+    "00000088"
+  ],
+  "validation_metrics": {
+    "candidate_accuracy": 0.8138567676096736,
+    "candidate_precision": 0.43118470385739255,
+    "candidate_recall": 0.8284666854667111,
+    "candidate_f1": 0.5671762290046861,
+    "candidate_log_loss": 0.3946807086467743,
+    "observation_top1_accuracy_with_candidates": 0.7226517936367094,
+    "validation_candidate_rows": 264968,
+    "candidate_recall_pct": 98.8520020273695
+  },
+  "fit_time_seconds": 3.111366299999645,
+  "model_path": "models\\logistic_regression_candidate.joblib",
+  "candidate_generation": {
+    "top_k": 8,
+    "max_distance_m": 100.0,
+    "cell_size_m": 100.0,
+    "route_alignment_advance_penalty_m": 5.0,
+    "trip_summaries": [
+      {
+        "trip_id": "00000001",
+        "observations": 1315,
+        "candidates": 10071,
+        "positive_candidates": 1313,
+        "negative_candidates": 8758,
+        "zero_candidate_observations": 0,
+        "candidate_hit_observations": 1313,
+        "candidate_recall_pct": 99.84790874524715
+      },
+      {
+        "trip_id": "00000002",
+        "observations": 7243,
+        "candidates": 53898,
+        "positive_candidates": 6408,
+        "negative_candidates": 47490,
+        "zero_candidate_observations": 271,
+        "candidate_hit_observations": 6408,
+        "candidate_recall_pct": 88.4716277785448
+      },
+      {
+        "trip_id": "00000003",
+        "observations": 821,
+        "candidates": 6487,
+        "positive_candidates": 814,
+        "negative_candidates": 5673,
+        "zero_candidate_observations": 0,
+        "candidate_hit_observations": 814,
+        "candidate_recall_pct": 99.14738124238733
+      },
+      {
+        "trip_id": "00000004",
+        "observations": 1064,
+        "candidates": 7303,
+        "positive_candidates": 1049,
+        "negative_candidates": 6254,
+        "zero_candidate_observations": 0,
+        "candidate_hit_observations": 1049,
+        "candidate_recall_pct": 98.59022556390977
+      },
+      {
+        "trip_id": "00000005",
+        "observations": 1045,
+        "candidates": 4032,
+        "positive_candidates": 1045,
+        "negative_candidates": 2987,
+        "zero_candidate_observations": 0,
+        "candidate_hit_observations": 1045,
+        "candidate_recall_pct": 100.0
+      },
+      {
+        "trip_id": "00000006",
+        "observations": 1450,
+        "candidates": 10540,
+        "positive_candidates": 1448,
+        "negative_candidates": 9092,
+        "zero_candidate_observations": 0,
+        "candidate_hit_observations": 1448,
+        "candidate_recall_pct": 99.86206896551724
+      },
+      {
+        "trip_id": "00000008",
+        "observations": 3093,
+        "candidates": 24738,
+        "positive_candidates": 3051,
+        "negative_candidates": 21687,
+        "zero_candidate_observations": 0,
+        "candidate_hit_observations": 3051,
+        "candidate_recall_pct": 98.64209505334627
+      },
+      {
+        "trip_id": "00000010",
+        "observations": 2711,
+        "candidates": 21444,
+        "positive_candidates": 2673,
+        "negative_candidates": 18771,
+        "zero_candidate_observations": 0,
+        "candidate_hit_observations": 2673,
+        "candidate_recall_pct": 98.59830320914791
+      },
+      {
+        "trip_id": "00000011",
+        "observations": 2828,
+        "candidates": 17056,
+        "positive_candidates": 2827,
+        "negative_candidates": 14229,
+        "zero_candidate_observations": 0,
+        "candidate_hit_observations": 2827,
+        "candidate_recall_pct": 99.96463932107497
+      },
+      {
+        "trip_id": "00000012",
+        "observations": 1608,
+        "candidates": 7637,
+        "positive_candidates": 1608,
+        "negative_candidates": 6029,
+        "zero_candidate_observations": 0,
+        "candidate_hit_observations": 1608,
+        "candidate_recall_pct": 100.0
+      },
+      {
+        "trip_id": "00000013",
+        "observations": 2580,
+        "candidates": 18858,
+        "positive_candidates": 2580,
+        "negative_candidates": 16278,
+        "zero_candidate_observations": 0,
+        "candidate_hit_observations": 2580,
+        "candidate_recall_pct": 100.0
+      },
+      {
+        "trip_id": "00000014",
+        "observations": 448,
+        "candidates": 3533,
+        "positive_candidates": 443,
+        "negative_candidates": 3090,
+        "zero_candidate_observations": 0,
+        "candidate_hit_observations": 443,
+        "candidate_recall_pct": 98.88392857142857
+      },
+      {
+        "trip_id": "00000016",
+        "observations": 1305,
+        "candidates": 10315,
+        "positive_candidates": 1255,
+        "negative_candidates": 9060,
+        "zero_candidate_observations": 0,
+        "candidate_hit_observations": 1255,
+        "candidate_recall_pct": 96.16858237547893
+      },
+      {
+        "trip_id": "00000018",
+        "observations": 379,
+        "candidates": 2986,
+        "positive_candidates": 377,
+        "negative_candidates": 2609,
+        "zero_candidate_observations": 0,
+        "candidate_hit_observations": 377,
+        "candidate_recall_pct": 99.47229551451187
+      },
+      {
+        "trip_id": "00000019",
+        "observations": 2354,
+        "candidates": 16518,
+        "positive_candidates": 2301,
+        "negative_candidates": 14217,
+        "zero_candidate_observations": 0,
+        "candidate_hit_observations": 2301,
+        "candidate_recall_pct": 97.74851316907392
+      },
+      {
+        "trip_id": "00000020",
+        "observations": 2353,
+        "candidates": 10084,
+        "positive_candidates": 2335,
+        "negative_candidates": 7749,
+        "zero_candidate_observations": 0,
+        "candidate_hit_observations": 2335,
+        "candidate_recall_pct": 99.23501912452188
+      },
+      {
+        "trip_id": "00000021",
+        "observations": 15783,
+        "candidates": 66548,
+        "positive_candidates": 15783,
+        "negative_candidates": 50765,
+        "zero_candidate_observations": 0,
+        "candidate_hit_observations": 15783,
+        "candidate_recall_pct": 100.0
+      },
+      {
+        "trip_id": "00000022",
+        "observations": 474,
+        "candidates": 3680,
+        "positive_candidates": 469,
+        "negative_candidates": 3211,
+        "zero_candidate_observations": 0,
+        "candidate_hit_observations": 469,
+        "candidate_recall_pct": 98.94514767932489
+      },
+      {
+        "trip_id": "00000024",
+        "observations": 801,
+        "candidates": 5828,
+        "positive_candidates": 800,
+        "negative_candidates": 5028,
+        "zero_candidate_observations": 0,
+        "candidate_hit_observations": 800,
+        "candidate_recall_pct": 99.87515605493134
+      },
+      {
+        "trip_id": "00000025",
+        "observations": 1179,
+        "candidates": 9130,
+        "positive_candidates": 1177,
+        "negative_candidates": 7953,
+        "zero_candidate_observations": 0,
+        "candidate_hit_observations": 1177,
+        "candidate_recall_pct": 99.8303647158609
+      },
+      {
+        "trip_id": "00000026",
+        "observations": 361,
+        "candidates": 2882,
+        "positive_candidates": 361,
+        "negative_candidates": 2521,
+        "zero_candidate_observations": 0,
+        "candidate_hit_observations": 361,
+        "candidate_recall_pct": 100.0
+      },
+      {
+        "trip_id": "00000027",
+        "observations": 694,
+        "candidates": 5004,
+        "positive_candidates": 694,
+        "negative_candidates": 4310,
+        "zero_candidate_observations": 0,
+        "candidate_hit_observations": 694,
+        "candidate_recall_pct": 100.0
+      },
+      {
+        "trip_id": "00000028",
+        "observations": 3565,
+        "candidates": 22449,
+        "positive_candidates": 3543,
+        "negative_candidates": 18906,
+        "zero_candidate_observations": 0,
+        "candidate_hit_observations": 3543,
+        "candidate_recall_pct": 99.38288920056101
+      },
+      {
+        "trip_id": "00000029",
+        "observations": 733,
+        "candidates": 5769,
+        "positive_candidates": 732,
+        "negative_candidates": 5037,
+        "zero_candidate_observations": 0,
+        "candidate_hit_observations": 732,
+        "candidate_recall_pct": 99.86357435197817
+      },
+      {
+        "trip_id": "00000031",
+        "observations": 4245,
+        "candidates": 28533,
+        "positive_candidates": 4240,
+        "negative_candidates": 24293,
+        "zero_candidate_observations": 0,
+        "candidate_hit_observations": 4240,
+        "candidate_recall_pct": 99.88221436984688
+      },
+      {
+        "trip_id": "00000032",
+        "observations": 2464,
+        "candidates": 16323,
+        "positive_candidates": 2462,
+        "negative_candidates": 13861,
+        "zero_candidate_observations": 0,
+        "candidate_hit_observations": 2462,
+        "candidate_recall_pct": 99.91883116883118
+      },
+      {
+        "trip_id": "00000033",
+        "observations": 5844,
+        "candidates": 46621,
+        "positive_candidates": 1976,
+        "negative_candidates": 44645,
+        "zero_candidate_observations": 0,
+        "candidate_hit_observations": 1976,
+        "candidate_recall_pct": 33.81245722108145
+      },
+      {
+        "trip_id": "00000034",
+        "observations": 3614,
+        "candidates": 25309,
+        "positive_candidates": 3610,
+        "negative_candidates": 21699,
+        "zero_candidate_observations": 0,
+        "candidate_hit_observations": 3610,
+        "candidate_recall_pct": 99.88931931377975
+      },
+      {
+        "trip_id": "00000035",
+        "observations": 1643,
+        "candidates": 13021,
+        "positive_candidates": 1636,
+        "negative_candidates": 11385,
+        "zero_candidate_observations": 0,
+        "candidate_hit_observations": 1636,
+        "candidate_recall_pct": 99.57395009129641
+      },
+      {
+        "trip_id": "00000036",
+        "observations": 1368,
+        "candidates": 10488,
+        "positive_candidates": 1367,
+        "negative_candidates": 9121,
+        "zero_candidate_observations": 0,
+        "candidate_hit_observations": 1367,
+        "candidate_recall_pct": 99.92690058479532
+      },
+      {
+        "trip_id": "00000037",
+        "observations": 677,
+        "candidates": 5414,
+        "positive_candidates": 677,
+        "negative_candidates": 4737,
+        "zero_candidate_observations": 0,
+        "candidate_hit_observations": 677,
+        "candidate_recall_pct": 100.0
+      },
+      {
+        "trip_id": "00000038",
+        "observations": 1287,
+        "candidates": 10264,
+        "positive_candidates": 1286,
+        "negative_candidates": 8978,
+        "zero_candidate_observations": 0,
+        "candidate_hit_observations": 1286,
+        "candidate_recall_pct": 99.92229992229993
+      },
+      {
+        "trip_id": "00000039",
+        "observations": 363,
+        "candidates": 2690,
+        "positive_candidates": 363,
+        "negative_candidates": 2327,
+        "zero_candidate_observations": 0,
+        "candidate_hit_observations": 363,
+        "candidate_recall_pct": 100.0
+      },
+      {
+        "trip_id": "00000041",
+        "observations": 1019,
+        "candidates": 7729,
+        "positive_candidates": 1018,
+        "negative_candidates": 6711,
+        "zero_candidate_observations": 0,
+        "candidate_hit_observations": 1018,
+        "candidate_recall_pct": 99.9018645731109
+      },
+      {
+        "trip_id": "00000042",
+        "observations": 7739,
+        "candidates": 58427,
+        "positive_candidates": 7739,
+        "negative_candidates": 50688,
+        "zero_candidate_observations": 0,
+        "candidate_hit_observations": 7739,
+        "candidate_recall_pct": 100.0
+      },
+      {
+        "trip_id": "00000043",
+        "observations": 2322,
+        "candidates": 16764,
+        "positive_candidates": 2211,
+        "negative_candidates": 14553,
+        "zero_candidate_observations": 14,
+        "candidate_hit_observations": 2211,
+        "candidate_recall_pct": 95.21963824289406
+      },
+      {
+        "trip_id": "00000044",
+        "observations": 546,
+        "candidates": 4312,
+        "positive_candidates": 546,
+        "negative_candidates": 3766,
+        "zero_candidate_observations": 0,
+        "candidate_hit_observations": 546,
+        "candidate_recall_pct": 100.0
+      },
+      {
+        "trip_id": "00000045",
+        "observations": 640,
+        "candidates": 3896,
+        "positive_candidates": 640,
+        "negative_candidates": 3256,
+        "zero_candidate_observations": 0,
+        "candidate_hit_observations": 640,
+        "candidate_recall_pct": 100.0
+      },
+      {
+        "trip_id": "00000046",
+        "observations": 1401,
+        "candidates": 9080,
+        "positive_candidates": 1401,
+        "negative_candidates": 7679,
+        "zero_candidate_observations": 0,
+        "candidate_hit_observations": 1401,
+        "candidate_recall_pct": 100.0
+      },
+      {
+        "trip_id": "00000047",
+        "observations": 1272,
+        "candidates": 10134,
+        "positive_candidates": 1272,
+        "negative_candidates": 8862,
+        "zero_candidate_observations": 0,
+        "candidate_hit_observations": 1272,
+        "candidate_recall_pct": 100.0
+      },
+      {
+        "trip_id": "00000048",
+        "observations": 1240,
+        "candidates": 8936,
+        "positive_candidates": 1240,
+        "negative_candidates": 7696,
+        "zero_candidate_observations": 0,
+        "candidate_hit_observations": 1240,
+        "candidate_recall_pct": 100.0
+      },
+      {
+        "trip_id": "00000050",
+        "observations": 518,
+        "candidates": 3896,
+        "positive_candidates": 517,
+        "negative_candidates": 3379,
+        "zero_candidate_observations": 0,
+        "candidate_hit_observations": 517,
+        "candidate_recall_pct": 99.8069498069498
+      },
+      {
+        "trip_id": "00000051",
+        "observations": 984,
+        "candidates": 7852,
+        "positive_candidates": 984,
+        "negative_candidates": 6868,
+        "zero_candidate_observations": 0,
+        "candidate_hit_observations": 984,
+        "candidate_recall_pct": 100.0
+      },
+      {
+        "trip_id": "00000053",
+        "observations": 1304,
+        "candidates": 10392,
+        "positive_candidates": 1291,
+        "negative_candidates": 9101,
+        "zero_candidate_observations": 0,
+        "candidate_hit_observations": 1291,
+        "candidate_recall_pct": 99.00306748466258
+      },
+      {
+        "trip_id": "00000054",
+        "observations": 19313,
+        "candidates": 73173,
+        "positive_candidates": 2176,
+        "negative_candidates": 70997,
+        "zero_candidate_observations": 1022,
+        "candidate_hit_observations": 2176,
+        "candidate_recall_pct": 11.267022213017139
+      },
+      {
+        "trip_id": "00000055",
+        "observations": 2472,
+        "candidates": 16067,
+        "positive_candidates": 2472,
+        "negative_candidates": 13595,
+        "zero_candidate_observations": 0,
+        "candidate_hit_observations": 2472,
+        "candidate_recall_pct": 100.0
+      },
+      {
+        "trip_id": "00000057",
+        "observations": 1645,
+        "candidates": 12906,
+        "positive_candidates": 1643,
+        "negative_candidates": 11263,
+        "zero_candidate_observations": 0,
+        "candidate_hit_observations": 1643,
+        "candidate_recall_pct": 99.87841945288754
+      },
+      {
+        "trip_id": "00000058",
+        "observations": 599,
+        "candidates": 4789,
+        "positive_candidates": 581,
+        "negative_candidates": 4208,
+        "zero_candidate_observations": 0,
+        "candidate_hit_observations": 581,
+        "candidate_recall_pct": 96.99499165275459
+      },
+      {
+        "trip_id": "00000060",
+        "observations": 854,
+        "candidates": 6832,
+        "positive_candidates": 837,
+        "negative_candidates": 5995,
+        "zero_candidate_observations": 0,
+        "candidate_hit_observations": 837,
+        "candidate_recall_pct": 98.00936768149883
+      },
+      {
+        "trip_id": "00000061",
+        "observations": 1430,
+        "candidates": 11434,
+        "positive_candidates": 1282,
+        "negative_candidates": 10152,
+        "zero_candidate_observations": 0,
+        "candidate_hit_observations": 1282,
+        "candidate_recall_pct": 89.65034965034965
+      },
+      {
+        "trip_id": "00000062",
+        "observations": 3378,
+        "candidates": 25965,
+        "positive_candidates": 3374,
+        "negative_candidates": 22591,
+        "zero_candidate_observations": 0,
+        "candidate_hit_observations": 3374,
+        "candidate_recall_pct": 99.88158673771463
+      },
+      {
+        "trip_id": "00000063",
+        "observations": 2781,
+        "candidates": 20730,
+        "positive_candidates": 2780,
+        "negative_candidates": 17950,
+        "zero_candidate_observations": 0,
+        "candidate_hit_observations": 2780,
+        "candidate_recall_pct": 99.96404171161453
+      },
+      {
+        "trip_id": "00000064",
+        "observations": 2093,
+        "candidates": 14706,
+        "positive_candidates": 2091,
+        "negative_candidates": 12615,
+        "zero_candidate_observations": 0,
+        "candidate_hit_observations": 2091,
+        "candidate_recall_pct": 99.90444338270426
+      },
+      {
+        "trip_id": "00000066",
+        "observations": 4325,
+        "candidates": 21131,
+        "positive_candidates": 4127,
+        "negative_candidates": 17004,
+        "zero_candidate_observations": 0,
+        "candidate_hit_observations": 4127,
+        "candidate_recall_pct": 95.42196531791907
+      },
+      {
+        "trip_id": "00000068",
+        "observations": 747,
+        "candidates": 5852,
+        "positive_candidates": 745,
+        "negative_candidates": 5107,
+        "zero_candidate_observations": 0,
+        "candidate_hit_observations": 745,
+        "candidate_recall_pct": 99.73226238286479
+      },
+      {
+        "trip_id": "00000069",
+        "observations": 2067,
+        "candidates": 16164,
+        "positive_candidates": 2059,
+        "negative_candidates": 14105,
+        "zero_candidate_observations": 0,
+        "candidate_hit_observations": 2059,
+        "candidate_recall_pct": 99.6129656507015
+      },
+      {
+        "trip_id": "00000070",
+        "observations": 2076,
+        "candidates": 13710,
+        "positive_candidates": 2058,
+        "negative_candidates": 11652,
+        "zero_candidate_observations": 0,
+        "candidate_hit_observations": 2058,
+        "candidate_recall_pct": 99.13294797687861
+      },
+      {
+        "trip_id": "00000071",
+        "observations": 850,
+        "candidates": 6528,
+        "positive_candidates": 848,
+        "negative_candidates": 5680,
+        "zero_candidate_observations": 0,
+        "candidate_hit_observations": 848,
+        "candidate_recall_pct": 99.76470588235294
+      },
+      {
+        "trip_id": "00000072",
+        "observations": 969,
+        "candidates": 7555,
+        "positive_candidates": 817,
+        "negative_candidates": 6738,
+        "zero_candidate_observations": 0,
+        "candidate_hit_observations": 817,
+        "candidate_recall_pct": 84.31372549019608
+      },
+      {
+        "trip_id": "00000074",
+        "observations": 1929,
+        "candidates": 12840,
+        "positive_candidates": 1925,
+        "negative_candidates": 10915,
+        "zero_candidate_observations": 0,
+        "candidate_hit_observations": 1925,
+        "candidate_recall_pct": 99.7926386728875
+      },
+      {
+        "trip_id": "00000075",
+        "observations": 1628,
+        "candidates": 12904,
+        "positive_candidates": 1626,
+        "negative_candidates": 11278,
+        "zero_candidate_observations": 0,
+        "candidate_hit_observations": 1626,
+        "candidate_recall_pct": 99.87714987714988
+      },
+      {
+        "trip_id": "00000078",
+        "observations": 2909,
+        "candidates": 22784,
+        "positive_candidates": 2906,
+        "negative_candidates": 19878,
+        "zero_candidate_observations": 0,
+        "candidate_hit_observations": 2906,
+        "candidate_recall_pct": 99.89687177724304
+      },
+      {
+        "trip_id": "00000079",
+        "observations": 689,
+        "candidates": 5512,
+        "positive_candidates": 685,
+        "negative_candidates": 4827,
+        "zero_candidate_observations": 0,
+        "candidate_hit_observations": 685,
+        "candidate_recall_pct": 99.41944847605225
+      },
+      {
+        "trip_id": "00000080",
+        "observations": 2510,
+        "candidates": 18588,
+        "positive_candidates": 2500,
+        "negative_candidates": 16088,
+        "zero_candidate_observations": 0,
+        "candidate_hit_observations": 2500,
+        "candidate_recall_pct": 99.60159362549801
+      },
+      {
+        "trip_id": "00000081",
+        "observations": 3224,
+        "candidates": 24184,
+        "positive_candidates": 3142,
+        "negative_candidates": 21042,
+        "zero_candidate_observations": 13,
+        "candidate_hit_observations": 3142,
+        "candidate_recall_pct": 97.45657568238214
+      },
+      {
+        "trip_id": "00000082",
+        "observations": 4268,
+        "candidates": 27891,
+        "positive_candidates": 4268,
+        "negative_candidates": 23623,
+        "zero_candidate_observations": 0,
+        "candidate_hit_observations": 4268,
+        "candidate_recall_pct": 100.0
+      },
+      {
+        "trip_id": "00000083",
+        "observations": 1507,
+        "candidates": 11984,
+        "positive_candidates": 1502,
+        "negative_candidates": 10482,
+        "zero_candidate_observations": 0,
+        "candidate_hit_observations": 1502,
+        "candidate_recall_pct": 99.66821499668215
+      },
+      {
+        "trip_id": "00000084",
+        "observations": 16031,
+        "candidates": 98237,
+        "positive_candidates": 15931,
+        "negative_candidates": 82306,
+        "zero_candidate_observations": 1,
+        "candidate_hit_observations": 15931,
+        "candidate_recall_pct": 99.37620859584555
+      },
+      {
+        "trip_id": "00000085",
+        "observations": 1092,
+        "candidates": 7534,
+        "positive_candidates": 1083,
+        "negative_candidates": 6451,
+        "zero_candidate_observations": 0,
+        "candidate_hit_observations": 1083,
+        "candidate_recall_pct": 99.17582417582418
+      },
+      {
+        "trip_id": "00000086",
+        "observations": 4143,
+        "candidates": 23843,
+        "positive_candidates": 4141,
+        "negative_candidates": 19702,
+        "zero_candidate_observations": 0,
+        "candidate_hit_observations": 4141,
+        "candidate_recall_pct": 99.95172580255853
+      },
+      {
+        "trip_id": "00000088",
+        "observations": 876,
+        "candidates": 6951,
+        "positive_candidates": 875,
+        "negative_candidates": 6076,
+        "zero_candidate_observations": 0,
+        "candidate_hit_observations": 875,
+        "candidate_recall_pct": 99.88584474885845
+      },
+      {
+        "trip_id": "00000089",
+        "observations": 1228,
+        "candidates": 9824,
+        "positive_candidates": 1198,
+        "negative_candidates": 8626,
+        "zero_candidate_observations": 0,
+        "candidate_hit_observations": 1198,
+        "candidate_recall_pct": 97.55700325732899
+      },
+      {
+        "trip_id": "00000090",
+        "observations": 536,
+        "candidates": 4254,
+        "positive_candidates": 532,
+        "negative_candidates": 3722,
+        "zero_candidate_observations": 0,
+        "candidate_hit_observations": 532,
+        "candidate_recall_pct": 99.25373134328358
+      },
+      {
+        "trip_id": "00000092",
+        "observations": 7892,
+        "candidates": 58490,
+        "positive_candidates": 7887,
+        "negative_candidates": 50603,
+        "zero_candidate_observations": 0,
+        "candidate_hit_observations": 7887,
+        "candidate_recall_pct": 99.93664470349721
+      },
+      {
+        "trip_id": "00000093",
+        "observations": 1211,
+        "candidates": 9678,
+        "positive_candidates": 1152,
+        "negative_candidates": 8526,
+        "zero_candidate_observations": 0,
+        "candidate_hit_observations": 1152,
+        "candidate_recall_pct": 95.12799339388934
+      },
+      {
+        "trip_id": "00000095",
+        "observations": 1551,
+        "candidates": 12320,
+        "positive_candidates": 1548,
+        "negative_candidates": 10772,
+        "zero_candidate_observations": 0,
+        "candidate_hit_observations": 1548,
+        "candidate_recall_pct": 99.80657640232108
+      },
+      {
+        "trip_id": "00000096",
+        "observations": 3271,
+        "candidates": 19436,
+        "positive_candidates": 3259,
+        "negative_candidates": 16177,
+        "zero_candidate_observations": 10,
+        "candidate_hit_observations": 3259,
+        "candidate_recall_pct": 99.6331397126261
+      },
+      {
+        "trip_id": "00000097",
+        "observations": 1740,
+        "candidates": 12696,
+        "positive_candidates": 1738,
+        "negative_candidates": 10958,
+        "zero_candidate_observations": 0,
+        "candidate_hit_observations": 1738,
+        "candidate_recall_pct": 99.88505747126437
+      },
+      {
+        "trip_id": "00000098",
+        "observations": 5584,
+        "candidates": 36866,
+        "positive_candidates": 5567,
+        "negative_candidates": 31299,
+        "zero_candidate_observations": 0,
+        "candidate_hit_observations": 5567,
+        "candidate_recall_pct": 99.69555873925502
+      },
+      {
+        "trip_id": "00000099",
+        "observations": 2322,
+        "candidates": 18400,
+        "positive_candidates": 2315,
+        "negative_candidates": 16085,
+        "zero_candidate_observations": 2,
+        "candidate_hit_observations": 2315,
+        "candidate_recall_pct": 99.69853574504738
+      }
+    ]
+  }
+}
