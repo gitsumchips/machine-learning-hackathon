@@ -253,71 +253,71 @@ def match_trip(trip_id: str):
         )
         logger.info(f"HMM Viterbi decoding finished in {time.time()-t_viterbi:.3f}s. Reconstructed route length: {len(connected_route)} arcs.")
 
-    # 4. Server-Side Accuracy Evaluation against internal reference route
-    eval_metrics = compute_route_metrics(connected_route, ref_route, raw_trip.arcs)
-    
-    # Pointwise Top-1 accuracy against ground truth alignment
-    from src.candidate_training import align_route_to_track
-    track_coords = raw_trip.track[["longitude", "latitude"]].to_numpy()
-    ref_lon, ref_lat = float(track_coords[:, 0].mean()), float(track_coords[:, 1].mean())
-    tx, ty, _, _ = local_cartesian_projection(track_coords[:, 0], track_coords[:, 1], ref_lat=ref_lat, ref_lon=ref_lon)
-    nodes_c = raw_trip.nodes[["longitude", "latitude"]].to_numpy()
-    nx, ny, _, _ = local_cartesian_projection(nodes_c[:, 0], nodes_c[:, 1], ref_lat=ref_lat, ref_lon=ref_lon)
-    from_ids = raw_trip.arcs["from_node_id"].to_numpy()
-    to_ids = raw_trip.arcs["to_node_id"].to_numpy()
-    gt_aligned = align_route_to_track(tx, ty, np.array(ref_route), np.arange(len(raw_trip.arcs)), nx[from_ids], ny[from_ids], nx[to_ids], ny[to_ids])
-    
-    pointwise_acc = float(np.mean(np.array(pointwise_selected) == gt_aligned))
+        # 4. Server-Side Accuracy Evaluation against internal reference route
+        eval_metrics = compute_route_metrics(connected_route, ref_route, raw_trip.arcs)
+        
+        # Pointwise Top-1 accuracy against ground truth alignment
+        from src.candidate_training import align_route_to_track
+        track_coords = raw_trip.track[["longitude", "latitude"]].to_numpy()
+        ref_lon, ref_lat = float(track_coords[:, 0].mean()), float(track_coords[:, 1].mean())
+        tx, ty, _, _ = local_cartesian_projection(track_coords[:, 0], track_coords[:, 1], ref_lat=ref_lat, ref_lon=ref_lon)
+        nodes_c = raw_trip.nodes[["longitude", "latitude"]].to_numpy()
+        nx, ny, _, _ = local_cartesian_projection(nodes_c[:, 0], nodes_c[:, 1], ref_lat=ref_lat, ref_lon=ref_lon)
+        from_ids = raw_trip.arcs["from_node_id"].to_numpy()
+        to_ids = raw_trip.arcs["to_node_id"].to_numpy()
+        gt_aligned = align_route_to_track(tx, ty, np.array(ref_route), np.arange(len(raw_trip.arcs)), nx[from_ids], ny[from_ids], nx[to_ids], ny[to_ids])
+        
+        pointwise_acc = float(np.mean(np.array(pointwise_selected) == gt_aligned))
 
-    elapsed_ms = (time.time() - t_start) * 1000.0
-    logger.info(f"=== EVALUATION RESULTS FOR TRIP {trip_id} ===")
-    logger.info(f"Observation Top-1 Accuracy: {pointwise_acc*100:.2f}%")
-    logger.info(f"Route Continuity:          {eval_metrics['route_continuity']*100:.2f}%")
-    logger.info(f"Route Arc F1:              {eval_metrics['arc_f1']:.4f}")
-    logger.info(f"Normalized Edit Similarity:{eval_metrics['normalized_edit_similarity']:.4f}")
-    logger.info(f"Total Latency:             {elapsed_ms:.1f}ms")
+        elapsed_ms = (time.time() - t_start) * 1000.0
+        logger.info(f"=== EVALUATION RESULTS FOR TRIP {trip_id} ===")
+        logger.info(f"Observation Top-1 Accuracy: {pointwise_acc*100:.2f}%")
+        logger.info(f"Route Continuity:          {eval_metrics['route_continuity']*100:.2f}%")
+        logger.info(f"Route Arc F1:              {eval_metrics['arc_f1']:.4f}")
+        logger.info(f"Normalized Edit Similarity:{eval_metrics['normalized_edit_similarity']:.4f}")
+        logger.info(f"Total Latency:             {elapsed_ms:.1f}ms")
 
-    # 5. Prepare coordinate geometries for UI mapping
-    nodes_lat_lon = raw_trip.nodes[["latitude", "longitude"]].to_numpy()
-    
-    pred_coords = []
-    for arc_id in connected_route:
-        u, v = from_ids[arc_id], to_ids[arc_id]
-        pred_coords.append([float(nodes_lat_lon[u, 0]), float(nodes_lat_lon[u, 1])])
-        pred_coords.append([float(nodes_lat_lon[v, 0]), float(nodes_lat_lon[v, 1])])
+        # 5. Prepare coordinate geometries for UI mapping
+        nodes_lat_lon = raw_trip.nodes[["latitude", "longitude"]].to_numpy()
+        
+        pred_coords = []
+        for arc_id in connected_route:
+            u, v = from_ids[arc_id], to_ids[arc_id]
+            pred_coords.append([float(nodes_lat_lon[u, 0]), float(nodes_lat_lon[u, 1])])
+            pred_coords.append([float(nodes_lat_lon[v, 0]), float(nodes_lat_lon[v, 1])])
 
-    ref_coords = []
-    for arc_id in ref_route:
-        u, v = from_ids[arc_id], to_ids[arc_id]
-        ref_coords.append([float(nodes_lat_lon[u, 0]), float(nodes_lat_lon[u, 1])])
-        ref_coords.append([float(nodes_lat_lon[v, 0]), float(nodes_lat_lon[v, 1])])
+        ref_coords = []
+        for arc_id in ref_route:
+            u, v = from_ids[arc_id], to_ids[arc_id]
+            ref_coords.append([float(nodes_lat_lon[u, 0]), float(nodes_lat_lon[u, 1])])
+            ref_coords.append([float(nodes_lat_lon[v, 0]), float(nodes_lat_lon[v, 1])])
 
-    # Subsample raw GPS for responsive payload
-    step = max(1, len(raw_trip.track) // 250)
-    gps_sub = raw_trip.track.iloc[::step][["latitude", "longitude", "timestamp_s"]].to_dict(orient="records")
+        # Subsample raw GPS for responsive payload
+        step = max(1, len(raw_trip.track) // 250)
+        gps_sub = raw_trip.track.iloc[::step][["latitude", "longitude", "timestamp_s"]].to_dict(orient="records")
 
-    return {
-        "status": "success",
-        "trip_id": trip_id,
-        "metrics": {
-            "top1_accuracy": round(pointwise_acc, 4),
-            "top1_accuracy_pct": round(pointwise_acc * 100.0, 2),
-            "route_continuity": round(eval_metrics["route_continuity"], 4),
-            "route_continuity_pct": round(eval_metrics["route_continuity"] * 100.0, 2),
-            "route_arc_f1": round(eval_metrics["arc_f1"], 4),
-            "route_edit_distance": eval_metrics["edit_distance"],
-            "normalized_edit_similarity": round(eval_metrics["normalized_edit_similarity"], 4),
-            "latency_ms": round(elapsed_ms, 1)
-        },
-        "predicted_route": connected_route,
-        "predicted_route_length": len(connected_route),
-        "reference_route_length": len(ref_route),
-        "coordinates": {
-            "predicted_route": pred_coords,
-            "reference_route": ref_coords,
-            "raw_gps": gps_sub
+        return {
+            "status": "success",
+            "trip_id": trip_id,
+            "metrics": {
+                "top1_accuracy": round(pointwise_acc, 4),
+                "top1_accuracy_pct": round(pointwise_acc * 100.0, 2),
+                "route_continuity": round(eval_metrics["route_continuity"], 4),
+                "route_continuity_pct": round(eval_metrics["route_continuity"] * 100.0, 2),
+                "route_arc_f1": round(eval_metrics["arc_f1"], 4),
+                "route_edit_distance": eval_metrics["edit_distance"],
+                "normalized_edit_similarity": round(eval_metrics["normalized_edit_similarity"], 4),
+                "latency_ms": round(elapsed_ms, 1)
+            },
+            "predicted_route": connected_route,
+            "predicted_route_length": len(connected_route),
+            "reference_route_length": len(ref_route),
+            "coordinates": {
+                "predicted_route": pred_coords,
+                "reference_route": ref_coords,
+                "raw_gps": gps_sub
+            }
         }
-    }
     except HTTPException:
         raise
     except Exception as e:
