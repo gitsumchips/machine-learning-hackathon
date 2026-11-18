@@ -1,0 +1,27 @@
+{
+  "model": "sklearn.ensemble.HistGradientBoostingClassifier",
+  "feature_columns": [
+    "distance_to_arc_m",
+    "heading_difference_deg",
+    "heading_cosine",
+    "gps_step_distance_m",
+    "gps_speed_mps",
+    "arc_length_m",
+    "arc_bearing_sin",
+    "arc_bearing_cos",
+    "from_out_degree",
+    "to_in_degree",
+    "midpoint_distance_m",
+    "gps_delta_time_s"
+  ],
+  "random_state": 42,
+  "learning_rate": 0.1,
+  "max_iter": 200,
+  "max_leaf_nodes": 31,
+  "min_samples_leaf": 20,
+  "l2_regularization": 1.0,
+  "candidate_k": 30,
+  "route_alignment_k": 25,
+  "max_candidate_distance_m": 120.0,
+  "note": "Candidate-level classifier. Route-to-GPS labels are approximate monotonic geometric alignments; inspect diagnostics."
+}

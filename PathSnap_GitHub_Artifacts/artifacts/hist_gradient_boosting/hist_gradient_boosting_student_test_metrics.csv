@@ -1,0 +1,2 @@
+model,candidate_accuracy,candidate_macro_f1,observation_top1_accuracy,observation_macro_f1,candidate_coverage,candidate_miss_rate,log_loss
+HistGradientBoosting,0.9514474599860822,0.7701085476747435,0.7716597077244259,0.5030918041932736,0.9798016701461378,0.020198329853862163,0.1221170825916848

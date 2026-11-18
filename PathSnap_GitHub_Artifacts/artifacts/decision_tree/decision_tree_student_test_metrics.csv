@@ -1,0 +1,2 @@
+model,candidate_accuracy,candidate_macro_f1,observation_top1_accuracy,observation_macro_f1,candidate_coverage,candidate_miss_rate,log_loss
+Decision Tree,0.9514213639526792,0.7684085310051161,0.7042797494780794,0.473405183967013,0.9798016701461378,0.020198329853862163,0.25110008515202437

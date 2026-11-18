@@ -1,0 +1,2 @@
+model,validation_accuracy,validation_macro_f1,validation_positive_f1,validation_log_loss,training_seconds,prediction_seconds
+Decision Tree,0.9520628484541308,0.7584166609701948,0.5421259016605077,0.30013379208563096,16.285970449447632,0.6119532585144043
