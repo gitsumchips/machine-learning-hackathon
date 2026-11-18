@@ -1,0 +1,40 @@
+{
+  "model_family": "HistGradientBoostingClassifier",
+  "search_space": {
+    "learning_rate": "[0.03, 0.25] (log)",
+    "max_iter": "[100, 250]",
+    "max_leaf_nodes": "[15, 63]",
+    "min_samples_leaf": "[10, 50]",
+    "l2_regularization": "[0.01, 10.0] (log)"
+  },
+  "optimization_algorithm": "Tree-structured Parzen Estimator (TPE / Optuna)",
+  "number_of_trials": 15,
+  "optimization_objective": "GroupKFold (3-fold) Macro F1 on 80 training trips",
+  "best_hyperparameters": {
+    "learning_rate": 0.0517329967233022,
+    "max_iter": 125,
+    "max_leaf_nodes": 61,
+    "min_samples_leaf": 25,
+    "l2_regularization": 1.6483950287198241
+  },
+  "best_cv_macro_f1": 0.9214505938162963,
+  "optimization_runtime_seconds": 469.6449315547943,
+  "comparison": [
+    {
+      "model_version": "Untuned HistGradientBoosting (Baseline)",
+      "cv_macro_f1": 0.7487,
+      "student_test_top1_accuracy": 0.803705636743215,
+      "student_test_macro_f1": 0.7790564691705082,
+      "student_test_log_loss": 0.3314514710776624,
+      "inference_time_seconds": 0.3842957019805908
+    },
+    {
+      "model_version": "Tuned HistGradientBoosting (Bayesian Optuna)",
+      "cv_macro_f1": 0.9214505938162963,
+      "student_test_top1_accuracy": 0.8046972860125261,
+      "student_test_macro_f1": 0.7749071009689608,
+      "student_test_log_loss": 0.33898340850473707,
+      "inference_time_seconds": 0.45694541931152344
+    }
+  ]
+}

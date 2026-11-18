@@ -1,0 +1,3 @@
+model_version,cv_macro_f1,student_test_top1_accuracy,student_test_macro_f1,student_test_log_loss,inference_time_seconds
+Untuned HistGradientBoosting (Baseline),0.7487,0.803705636743215,0.7790564691705082,0.3314514710776624,0.3842957019805908
+Tuned HistGradientBoosting (Bayesian Optuna),0.9214505938162963,0.8046972860125261,0.7749071009689608,0.33898340850473707,0.45694541931152344

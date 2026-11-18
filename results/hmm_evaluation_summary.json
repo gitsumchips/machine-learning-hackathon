@@ -1,0 +1,25 @@
+{
+  "evaluation_partition": "Student Testing (10 trips)",
+  "total_trips": 10,
+  "mean_metrics": {
+    "classifier_only": {
+      "top1_accuracy": 0.8212058888027902,
+      "route_continuity": 0.7029264634687103,
+      "route_arc_f1": 0.5967979242198085,
+      "route_edit_similarity": 0.44406466634062436,
+      "mean_time_seconds": 0.065226149559021
+    },
+    "classifier_plus_hmm": {
+      "top1_accuracy": 0.8184370802812634,
+      "route_continuity": 0.9987159137159137,
+      "route_arc_f1": 0.8107830161168786,
+      "route_edit_similarity": 0.7266579575362075,
+      "mean_time_seconds": 0.44219365119934084
+    }
+  },
+  "improvements": {
+    "route_continuity_gain": 0.2957894502472034,
+    "route_arc_f1_gain": 0.21398509189707016,
+    "edit_similarity_gain": 0.2825932911955832
+  }
+}
