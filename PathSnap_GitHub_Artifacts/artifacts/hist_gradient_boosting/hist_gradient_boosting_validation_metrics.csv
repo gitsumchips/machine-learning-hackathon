@@ -1,0 +1,2 @@
+model,validation_accuracy,validation_macro_f1,validation_positive_f1,validation_log_loss,training_seconds,prediction_seconds
+HistGradientBoosting,0.952213211691164,0.7609918526968624,0.5472081705833387,0.12332052064793227,9.996313333511353,5.59969687461853
