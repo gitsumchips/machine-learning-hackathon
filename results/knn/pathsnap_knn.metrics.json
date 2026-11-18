@@ -1,0 +1,283 @@
+{
+  "selected_hyperparameters": {
+    "n_neighbors": 3,
+    "weights": "uniform"
+  },
+  "validation_tuning_scores": [
+    {
+      "n_neighbors": 3,
+      "weights": "uniform",
+      "proxy_top1_accuracy": 0.6547692307692308
+    },
+    {
+      "n_neighbors": 5,
+      "weights": "uniform",
+      "proxy_top1_accuracy": 0.6495384615384615
+    },
+    {
+      "n_neighbors": 7,
+      "weights": "uniform",
+      "proxy_top1_accuracy": 0.6475384615384615
+    },
+    {
+      "n_neighbors": 11,
+      "weights": "uniform",
+      "proxy_top1_accuracy": 0.6447692307692308
+    },
+    {
+      "n_neighbors": 15,
+      "weights": "uniform",
+      "proxy_top1_accuracy": 0.6426153846153846
+    },
+    {
+      "n_neighbors": 21,
+      "weights": "uniform",
+      "proxy_top1_accuracy": 0.6392307692307693
+    },
+    {
+      "n_neighbors": 21,
+      "weights": "distance",
+      "proxy_top1_accuracy": 0.6338461538461538
+    },
+    {
+      "n_neighbors": 15,
+      "weights": "distance",
+      "proxy_top1_accuracy": 0.6292307692307693
+    },
+    {
+      "n_neighbors": 11,
+      "weights": "distance",
+      "proxy_top1_accuracy": 0.628
+    },
+    {
+      "n_neighbors": 7,
+      "weights": "distance",
+      "proxy_top1_accuracy": 0.6258461538461538
+    },
+    {
+      "n_neighbors": 5,
+      "weights": "distance",
+      "proxy_top1_accuracy": 0.6233846153846154
+    },
+    {
+      "n_neighbors": 3,
+      "weights": "distance",
+      "proxy_top1_accuracy": 0.6207692307692307
+    }
+  ],
+  "route_decoder_tuning_scores": [
+    {
+      "switch_penalty": 120.0,
+      "mean_route_normalized_edit_similarity": 0.4070580934309718
+    },
+    {
+      "switch_penalty": 80.0,
+      "mean_route_normalized_edit_similarity": 0.4011599620937709
+    },
+    {
+      "switch_penalty": 60.0,
+      "mean_route_normalized_edit_similarity": 0.38731840361252756
+    },
+    {
+      "switch_penalty": 40.0,
+      "mean_route_normalized_edit_similarity": 0.3827093580217427
+    },
+    {
+      "switch_penalty": 20.0,
+      "mean_route_normalized_edit_similarity": 0.3058976703798989
+    }
+  ],
+  "heldout_test_route_metrics": {
+    "mean_route_normalized_edit_similarity": 0.27796561438895256,
+    "mean_route_arc_precision": 0.28049481236248097,
+    "mean_route_arc_recall": 0.961762362701892,
+    "mean_route_arc_f1": 0.37218124700264626,
+    "mean_connected_transition_fraction": 0.9988879709951191,
+    "trips_evaluated": 16
+  },
+  "heldout_test_per_trip": [
+    {
+      "route_edit_distance": 21,
+      "route_normalized_edit_similarity": 0.8852459016393442,
+      "route_arc_precision": 0.8852459016393442,
+      "route_arc_recall": 0.9938650306748467,
+      "route_arc_f1": 0.9364161849710982,
+      "predicted_route_length": 183,
+      "reference_route_length": 163,
+      "connected_transition_fraction": 1.0,
+      "trip_id": "00000037"
+    },
+    {
+      "route_edit_distance": 15589,
+      "route_normalized_edit_similarity": 0.03161883463784321,
+      "route_arc_precision": 0.03180519319170083,
+      "route_arc_recall": 0.9752380952380952,
+      "route_arc_f1": 0.06160139565662035,
+      "predicted_route_length": 16098,
+      "reference_route_length": 525,
+      "connected_transition_fraction": 0.999440889606759,
+      "trip_id": "00000001"
+    },
+    {
+      "route_edit_distance": 6165,
+      "route_normalized_edit_similarity": 0.08395245170876675,
+      "route_arc_precision": 0.08454680534918277,
+      "route_arc_recall": 0.9207119741100324,
+      "route_arc_f1": 0.1548720740337507,
+      "predicted_route_length": 6730,
+      "reference_route_length": 618,
+      "connected_transition_fraction": 1.0,
+      "trip_id": "00000028"
+    },
+    {
+      "route_edit_distance": 411,
+      "route_normalized_edit_similarity": 0.34554140127388533,
+      "route_arc_precision": 0.3471337579617834,
+      "route_arc_recall": 0.9864253393665159,
+      "route_arc_f1": 0.5135453474676089,
+      "predicted_route_length": 628,
+      "reference_route_length": 221,
+      "connected_transition_fraction": 1.0,
+      "trip_id": "00000038"
+    },
+    {
+      "route_edit_distance": 5200,
+      "route_normalized_edit_similarity": 0.04464449751975019,
+      "route_arc_precision": 0.04482821973176557,
+      "route_arc_recall": 0.9799196787148594,
+      "route_arc_f1": 0.08573436401967673,
+      "predicted_route_length": 5443,
+      "reference_route_length": 249,
+      "connected_transition_fraction": 0.9990812201396545,
+      "trip_id": "00000024"
+    },
+    {
+      "route_edit_distance": 1002,
+      "route_normalized_edit_similarity": 0.2718023255813954,
+      "route_arc_precision": 0.2747093023255814,
+      "route_arc_recall": 0.9379652605459057,
+      "route_arc_f1": 0.4249578414839798,
+      "predicted_route_length": 1376,
+      "reference_route_length": 403,
+      "connected_transition_fraction": 0.9992727272727273,
+      "trip_id": "00000035"
+    },
+    {
+      "route_edit_distance": 19174,
+      "route_normalized_edit_similarity": 0.038945416269861144,
+      "route_arc_precision": 0.03899553907072327,
+      "route_arc_recall": 0.9873096446700508,
+      "route_arc_f1": 0.0750277255412508,
+      "predicted_route_length": 19951,
+      "reference_route_length": 788,
+      "connected_transition_fraction": 1.0,
+      "trip_id": "00000013"
+    },
+    {
+      "route_edit_distance": 143,
+      "route_normalized_edit_similarity": 0.5249169435215947,
+      "route_arc_precision": 0.5249169435215947,
+      "route_arc_recall": 0.9693251533742331,
+      "route_arc_f1": 0.6810344827586207,
+      "predicted_route_length": 301,
+      "reference_route_length": 163,
+      "connected_transition_fraction": 1.0,
+      "trip_id": "00000088"
+    },
+    {
+      "route_edit_distance": 370,
+      "route_normalized_edit_similarity": 0.20940170940170943,
+      "route_arc_precision": 0.21581196581196582,
+      "route_arc_recall": 0.9619047619047619,
+      "route_arc_f1": 0.3525305410122164,
+      "predicted_route_length": 468,
+      "reference_route_length": 105,
+      "connected_transition_fraction": 0.9892933618843683,
+      "trip_id": "00000005"
+    },
+    {
+      "route_edit_distance": 2331,
+      "route_normalized_edit_similarity": 0.06834532374100721,
+      "route_arc_precision": 0.07394084732214229,
+      "route_arc_recall": 0.9068627450980392,
+      "route_arc_f1": 0.13673318551367333,
+      "predicted_route_length": 2502,
+      "reference_route_length": 204,
+      "connected_transition_fraction": 0.9984006397441023,
+      "trip_id": "00000016"
+    },
+    {
+      "route_edit_distance": 444,
+      "route_normalized_edit_similarity": 0.3798882681564246,
+      "route_arc_precision": 0.388268156424581,
+      "route_arc_recall": 0.9391891891891891,
+      "route_arc_f1": 0.5494071146245059,
+      "predicted_route_length": 716,
+      "reference_route_length": 296,
+      "connected_transition_fraction": 0.9972027972027973,
+      "trip_id": "00000061"
+    },
+    {
+      "route_edit_distance": 819,
+      "route_normalized_edit_similarity": 0.27522123893805306,
+      "route_arc_precision": 0.2831858407079646,
+      "route_arc_recall": 0.9411764705882353,
+      "route_arc_f1": 0.43537414965986393,
+      "predicted_route_length": 1130,
+      "reference_route_length": 340,
+      "connected_transition_fraction": 1.0,
+      "trip_id": "00000041"
+    },
+    {
+      "route_edit_distance": 1118,
+      "route_normalized_edit_similarity": 0.3469626168224299,
+      "route_arc_precision": 0.34813084112149534,
+      "route_arc_recall": 0.9505582137161085,
+      "route_arc_f1": 0.5096194955109021,
+      "predicted_route_length": 1712,
+      "reference_route_length": 627,
+      "connected_transition_fraction": 1.0,
+      "trip_id": "00000084"
+    },
+    {
+      "route_edit_distance": 19858,
+      "route_normalized_edit_similarity": 0.020615506016965823,
+      "route_arc_precision": 0.020615506016965872,
+      "route_arc_recall": 0.9789227166276346,
+      "route_arc_f1": 0.04038062116601459,
+      "predicted_route_length": 20276,
+      "reference_route_length": 427,
+      "connected_transition_fraction": 0.9998520345252775,
+      "trip_id": "00000043"
+    },
+    {
+      "route_edit_distance": 22,
+      "route_normalized_edit_similarity": 0.8804347826086957,
+      "route_arc_precision": 0.8858695652173914,
+      "route_arc_recall": 0.9588235294117647,
+      "route_arc_f1": 0.9209039548022601,
+      "predicted_route_length": 184,
+      "reference_route_length": 170,
+      "connected_transition_fraction": 1.0,
+      "trip_id": "00000085"
+    },
+    {
+      "route_edit_distance": 11426,
+      "route_normalized_edit_similarity": 0.0399126123855138,
+      "route_arc_precision": 0.03991261238551382,
+      "route_arc_recall": 1.0,
+      "route_arc_f1": 0.07676147382029735,
+      "predicted_route_length": 11901,
+      "reference_route_length": 475,
+      "connected_transition_fraction": 0.9996638655462184,
+      "trip_id": "00000055"
+    }
+  ],
+  "training_label_note": "Training still uses per-observation proxy labels derived by nearest point-to-segment distance among reference-route arcs.",
+  "evaluation_note": "Held-out routes are reconstructed without route labels in candidate generation, then compared with each trip's supplied .route sequence.",
+  "trip_counts": {
+    "fit": 51,
+    "validation": 13,
+    "heldout_test": 16
+  }
+}

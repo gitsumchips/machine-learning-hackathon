@@ -1,0 +1,30 @@
+{
+  "cross_validation_macro_f1": "not_generated: would require new fold-specific model fits, which were explicitly not requested",
+  "student_test_top1_and_macro_f1": "generated against a route-derived nearest-arc proxy; .route does not align labels one-to-one with GPS observations",
+  "training_validation_loss_curves": "not_applicable: KNN and Random Forest do not produce epoch-wise loss histories",
+  "student_test_metrics": {
+    "KNN": {
+      "proxy_top1_accuracy": 0.7510412213740458,
+      "proxy_macro_f1": 0.5934309833006486,
+      "candidate_proxy_log_loss": 0.4215194267282216
+    },
+    "Random Forest": {
+      "proxy_top1_accuracy": 0.7986946564885496,
+      "proxy_macro_f1": 0.6724783300881387,
+      "candidate_proxy_log_loss": 0.07001892333302107
+    }
+  },
+  "folium_map": "/home/sam/GitRepos/machine-learning-hackathon/results/visualizations/folium_student_test_trip_00000000.html",
+  "static_figures": [
+    "cross_validation_metric_availability.png",
+    "eda_sample_trajectory.png",
+    "eda_trip_row_counts.png",
+    "heldout_per_trip_route_f1.png",
+    "heldout_route_model_comparison.png",
+    "student_test_candidate_confusion_matrices.png",
+    "student_test_candidate_log_loss.png",
+    "student_test_top1_macro_f1.png",
+    "validation_tuning_results.png"
+  ],
+  "uses_model_retraining": false
+}
